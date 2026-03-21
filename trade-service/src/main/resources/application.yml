@@ -1,0 +1,14 @@
+server:
+  port: 8206
+
+spring:
+  application:
+    name: trade-service
+
+# 启用feign
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
