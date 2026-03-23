@@ -12,14 +12,14 @@ public interface PayFeignClient {
 
     @PostMapping("/payment/create")
     Result<PaymentDTO> createPayment(
-            @RequestParam String orderNo,
-            @RequestParam Long userId,
-            @RequestParam Integer payType,
-            @RequestParam BigDecimal amount);
+            @RequestParam("orderNo") String orderNo,
+            @RequestParam("userId") Long userId,
+            @RequestParam("payType") Integer payType,
+            @RequestParam("amount") BigDecimal amount);
 
     @GetMapping("/payment/order/{orderNo}")
-    Result<PaymentDTO> getPaymentByOrderNo(@PathVariable String orderNo);
+    Result<PaymentDTO> getPaymentByOrderNo(@PathVariable("orderNo") String orderNo);
 
     @GetMapping("/payment/{paymentNo}")
-    Result<PaymentDTO> getPaymentByPaymentNo(@PathVariable String paymentNo);
+    Result<PaymentDTO> getPaymentByPaymentNo(@PathVariable("paymentNo") String paymentNo);
 }

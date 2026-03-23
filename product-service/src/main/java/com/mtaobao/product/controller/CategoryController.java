@@ -29,4 +29,10 @@ public class CategoryController {
     public Result<Category> getById(@PathVariable Long id) {
         return Result.success(categoryService.getById(id));
     }
+
+    @PostMapping
+    public Result<Void> addCategory(@RequestBody Category category) {
+        categoryService.addCategory(category);
+        return Result.success();
+    }
 }

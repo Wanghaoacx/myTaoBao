@@ -15,20 +15,20 @@ public interface OrderFeignClient {
     Result<OrderDTO> createOrder(@RequestBody OrderCreateDTO dto);
 
     @GetMapping("/order/{id}")
-    Result<OrderDTO> getOrderById(@PathVariable Long id);
+    Result<OrderDTO> getOrderById(@PathVariable("id") Long id);
 
     @GetMapping("/order/no/{orderNo}")
-    Result<OrderDTO> getOrderByOrderNo(@PathVariable String orderNo);
+    Result<OrderDTO> getOrderByOrderNo(@PathVariable("orderNo") String orderNo);
 
     @GetMapping("/order/user/{userId}")
-    Result<List<OrderDTO>> getOrderByUserId(@PathVariable Long userId);
+    Result<List<OrderDTO>> getOrderByUserId(@PathVariable("userId") Long userId);
 
     @GetMapping("/order/{id}/items")
-    Result<?> getOrderItems(@PathVariable Long id);
+    Result<?> getOrderItems(@PathVariable("id") Long id);
 
     @PutMapping("/order/cancel/{id}")
-    Result<Void> cancelOrder(@PathVariable Long id);
+    Result<Void> cancelOrder(@PathVariable("id") Long id);
 
     @PutMapping("/order/status/{id}")
-    Result<Void> updateOrderStatus(@PathVariable Long id, @RequestParam Integer status);
+    Result<Void> updateOrderStatus(@PathVariable("id") Long id, @RequestParam("status") Integer status);
 }

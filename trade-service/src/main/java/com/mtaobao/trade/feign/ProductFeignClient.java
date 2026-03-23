@@ -13,19 +13,19 @@ import java.util.List;
 public interface ProductFeignClient {
 
     @GetMapping("/product/{id}")
-    Result<ProductDTO> getProductById(@PathVariable Long id);
+    Result<ProductDTO> getProductById(@PathVariable("id") Long id);
 
     @GetMapping("/product/list")
     Result<List<ProductDTO>> getProductList(
-            @RequestParam(required = false) Long categoryId,
-            @RequestParam(defaultValue = "20") Integer limit);
+            @RequestParam(value = "categoryId", required = false) Long categoryId,
+            @RequestParam(value = "limit", defaultValue = "20") Integer limit);
 
     @GetMapping("/product/page")
     Result<?> getProductPage(
-            @RequestParam(defaultValue = "1") Integer pageNum,
-            @RequestParam(defaultValue = "10") Integer pageSize,
-            @RequestParam(required = false) String keyword,
-            @RequestParam(required = false) Long categoryId);
+            @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+            @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
+            @RequestParam(value = "keyword", required = false) String keyword,
+            @RequestParam(value = "categoryId", required = false) Long categoryId);
 
     @GetMapping("/category/list")
     Result<?> getCategoryList();

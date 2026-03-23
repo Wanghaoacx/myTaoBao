@@ -13,14 +13,14 @@ import java.util.List;
 public interface UserFeignClient {
 
     @GetMapping("/user/{id}")
-    Result<?> getUserById(@PathVariable Long id);
+    Result<?> getUserById(@PathVariable("id") Long id);
 
     @GetMapping("/user/address/list")
-    Result<List<UserAddressDTO>> getAddressList(@RequestParam Long userId);
+    Result<List<UserAddressDTO>> getAddressList(@RequestParam("userId") Long userId);
 
     @GetMapping("/user/address/default")
-    Result<UserAddressDTO> getDefaultAddress(@RequestParam Long userId);
+    Result<UserAddressDTO> getDefaultAddress(@RequestParam("userId") Long userId);
 
     @GetMapping("/user/address/{id}")
-    Result<UserAddressDTO> getAddressById(@PathVariable Long id);
+    Result<UserAddressDTO> getAddressById(@PathVariable("id") Long id);
 }

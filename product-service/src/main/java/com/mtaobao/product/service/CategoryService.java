@@ -20,4 +20,9 @@ public interface CategoryService {
      * 根据ID获取分类
      */
     Category getById(Long id);
+
+    /**
+     * 添加分类
+     */
+    void addCategory(Category category);
 }

@@ -1,8 +1,8 @@
 package com.mtaobao.trade.dto;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
